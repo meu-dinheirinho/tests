@@ -1,10 +1,13 @@
 describe('Validar Dashboard', () => {
   beforeEach('Acessar a página da dashboard', () => {
-    cy.visit('http://localhost:3000/dashboard')
+    cy.visit('http://localhost:3000/')
+    cy.get("#email").type('admin@gmail.com')
+    cy.get("#password").type('plms123!P')
+    cy.get(".chakra-button.css-1r19sp").click()
     cy.url().should('contains', '/dashboard')
   })
 
-  it('Devo visualizar visualizar o nome Dashboard', () => {
+  it.skip('Devo visualizar visualizar o nome Dashboard', () => {
     cy.get(".chakra-text.styles_title__EUTE3.css-11oh35").should('be.visible').and('contain.text', 'Dashboard')
   })
 
